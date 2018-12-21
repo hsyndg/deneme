@@ -1,0 +1,30 @@
+a=input("Cümle giriniz:")
+print(a[::-1] )
+print(a.split(' '))
+harf=[]
+sayi=[]
+for i in(a):
+    if not (i in harf):
+        harf.append(i)
+        sayi.append(1)
+    else:
+        sayi[harf.index(i)]=sayi[harf.index(i)]+1
+print ("Harf --> Sayi")
+for j in range(len(harf)):
+    print (harf[j], " --> ", sayi[j])
+ters=a[::-1]
+bolunmus=ters.split(' ')
+print (" Kelimeleri kendi içinde ters çeviren ",bolunmus[::-1])
+
+'''Ünlü ve ünsüz ayırma
+'''
+unlu=["a","e","o","ö","u","ü","ı","i"]
+unluler=[]
+unsuzler=[]
+for i in a:
+    if i==unlu[0]or i==unlu[1]or i==unlu[2]or i==unlu[3]or i==unlu[4]or i==unlu[5]or i==unlu[6]or i==unlu[7]:
+        unluler.append(i)
+    else:
+        unsuzler.append(i)
+print("Ünlüler",unluler)
+print("Ünsüzler",unsuzler)
