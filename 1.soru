@@ -1,0 +1,16 @@
+belge=open("C:/hüseyin/221120181018.txt" ,"w")
+sayılar=[]
+a=int(input("1.sayıyı giriniz:"))
+b=int(input("2.sayıyı giriniz:"))
+c=int(input("3.sayıyı giriniz:"))
+d=int(input("4.sayıyı giriniz:"))
+e=int(input("5.sayıyı giriniz:"))
+sayılar=[a,b,c,d,e]
+print(sorted(sayılar,reverse=True))
+s=str(sorted(sayılar,reverse=True))
+
+belge.write(s)
+belge.close()
+
+
+
