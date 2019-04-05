@@ -1,0 +1,53 @@
+from tkinter import *
+from tkinter import messagebox
+
+
+romansayilar = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I']
+sayilar = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+def girilen():
+    def dec2roman(sayi):
+        if 1 <= sayi <= 3999:
+            romansayi = ("")
+            if type(sayi) == float:
+                integer, fractor = str(sayi).split('.')
+                integer = int(integer)
+                while len(fractor) > 3:
+                    fra = list(fractor)
+                    fra.pop()
+                    fractor = ("".join(fra))
+                fractor = int(fractor)
+                return dec2roman(integer) + ('.') + dec2roman(fractor)
+            for i, d in enumerate(sayilar):
+                while (sayi >= d):
+                    sayi -= d
+                    romansayi += romansayilar[i]
+            return (romansayi)
+        else:
+            messagebox.showinfo("Sonuç uyarısı", "Romen rakamları aralığında sayı giriniz")
+
+    il=giris.get()
+
+    try:
+        messagebox.showinfo("Uyarı", dec2roman(int(il)))
+    except ValueError:
+        messagebox.showinfo("Uyarı", "Girdiğiniz veri sayı olmalı.")
+
+pencere=Tk()
+pencere.title("Dönüştürücü")
+pencere.geometry("350x250")
+pencere.config(background="#20f792")
+
+yazi=Label(pencere)
+yazi.config(text="Dönüştürülecek sayıyı giriniz")
+yazi.pack()
+
+giris=Entry(pencere)
+
+giris.pack()
+
+buton=Button(pencere)
+buton.config(text="Tıkla dönüştür!")
+buton.config(command=girilen)
+buton.pack()
+
+pencere.mainloop()
